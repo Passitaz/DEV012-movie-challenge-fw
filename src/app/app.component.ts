@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Movie-challenge-fw';
+  title: string = 'Movie-challenge-fw';
+  text = 'Hola mundo';
+
+  constructor() {
+    this.text = this.test("Adios"); 
+  }
+
+  test = (text: string): string => {
+    return text;
+  }
 }
