@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IMovie, IGenre } from 'src/app/components/interface/interface';
+import { IMovie } from 'src/app/components/interface/interface';
 import { MovieService } from 'src/app/lib/movie-service.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { MovieService } from 'src/app/lib/movie-service.service';
 })
 
 export class MovieListComponent implements OnInit {
+  p: number = 1;
 
 @Input() movieList!: IMovie[];
 //definir propiedad como input porque llegara el array desde el padre, entonces en home tendre el ngOnInit que llame a getData. Primero llevarme ngOnInit y getData ( hacer un console log para revisar que me lleve la informacion), despues se envia al componente hijo

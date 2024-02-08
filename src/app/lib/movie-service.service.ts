@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { IMovie } from '../components/interface/interface';
-import { IGenre } from '../components/interface/interface';
-
+import { IMovie, IGenre } from '../components/interface/interface';
 
 @Injectable({
   providedIn: 'root'
@@ -18,11 +16,11 @@ export class MovieService {
   
   constructor(private http: HttpClient) { }
   getAllMovies():Observable<IMovie[]> {
-    return this.http.get(`${this.baseUrl}/discover/movie`, this.options).pipe(map((resp:any) => {
+    return this.http.get(`${this.baseUrl}/discover/movie`, this.options).pipe(map((resp: any) => {
       return resp.results as IMovie[];
     }))
   }
-  
+
   getGenres(): Observable<void> {
     const genresUrl = `${this.baseUrl}/genre/movie/list`;
     return this.http.get<IGenre[]>(genresUrl, this.options).pipe(
