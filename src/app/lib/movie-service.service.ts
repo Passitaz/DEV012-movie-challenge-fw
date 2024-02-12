@@ -15,12 +15,12 @@ export class MovieService {
   private genresMapping: { [id: number]: string } = {};
   
   constructor(private http: HttpClient) { }
-  getAllMovies():Observable<IMovie[]> {
-    return this.http.get(`${this.baseUrl}/discover/movie`, this.options).pipe(map((resp: any) => {
+  getAllMovies(page: number):Observable<IMovie[]> {
+    return this.http.get(`${this.baseUrl}/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc`, this.options).pipe(map((resp: any) => {
       return resp.results as IMovie[];
     }))
   }
-
+  
   getGenres(): Observable<void> {
     const genresUrl = `${this.baseUrl}/genre/movie/list`;
     return this.http.get<IGenre[]>(genresUrl, this.options).pipe(

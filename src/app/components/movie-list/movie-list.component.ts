@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IMovie } from 'src/app/components/interface/interface';
+import { IMovie} from 'src/app/components/interface/interface';
 import { MovieService } from 'src/app/lib/movie-service.service';
 
 @Component({
@@ -25,6 +25,13 @@ private genresMapping: { [id: number]: string } = {};
         console.log(`Genres for ${movie.title}:`, this.getGenresByIds(movie.genre_ids));
       });
     });
+  }
+
+  changePage(page: number){
+    this.movieService.getAllMovies(page).subscribe(resp => {
+      this.movieList = resp;
+    })
+    //console.log(page);
   }
 
   getGenresByIds(genreIds: number[]): string[] {

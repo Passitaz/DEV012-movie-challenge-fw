@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { CardComponent } from './components/card/card.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { DetailsComponent } from './views/details/details.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ClearButtonComponent,
     HomeComponent,
     MovieListComponent,
-    CardComponent
+    CardComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

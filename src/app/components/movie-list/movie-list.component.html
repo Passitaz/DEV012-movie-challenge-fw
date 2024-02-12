@@ -1,12 +1,17 @@
 <div class="container-movie" *ngIf="movieList">
-    <div style="height: 55vh; width: 16vw;" *ngFor="let movie of movieList | paginate: { itemsPerPage: 10, currentPage: p }">
+    <div style="height: 55vh; width: 16vw;" *ngFor="let movie of movieList | paginate: { itemsPerPage: 20, currentPage: p }">
       <img class="imag" src="https://image.tmdb.org/t/p/w200{{ movie.poster_path }}" alt="{{ movie.title }} Poster" />
       <p>{{ movie.title }}</p>
       <p>{{ movie.release_date }}</p>
       <p>{{ getGenresByIds(movie.genre_ids).join(', ')}}</p>
     </div>
     <div class="pagination">
-      <pagination-controls (pageChange)="p = $event" previousLabel="Previous"
-      nextLabel=" Next"></pagination-controls>
+      <button (click)="changePage(1)">Before</button>
+      <button (click)="changePage(1)">1</button>
+      <button (click)="changePage(2)">2</button>
+      <button (click)="changePage(3)">3</button>
+      <button (click)="changePage(4)">4</button>
+      <button (click)="changePage(5)">5</button>
+      <button (click)="changePage(6)">Next>></button>
     </div>
   </div>
