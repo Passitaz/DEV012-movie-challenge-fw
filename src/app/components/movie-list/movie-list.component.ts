@@ -13,7 +13,7 @@ export class MovieListComponent implements OnInit {
 
 @Input() movieList!: IMovie[];
 //definir propiedad como input porque llegara el array desde el padre, entonces en home tendre el ngOnInit que llame a getData. Primero llevarme ngOnInit y getData ( hacer un console log para revisar que me lleve la informacion), despues se envia al componente hijo
-private genresMapping: { [id: number]: string } = {};
+public genresMapping: { [id: number]: string } = {};
 
   constructor(private movieService: MovieService) { }
 

@@ -21,16 +21,18 @@ export class MovieService {
     }))
   }
   
-  getGenres(): Observable<void> {
+  getGenres(): Observable<IGenre[]> {
     const genresUrl = `${this.baseUrl}/genre/movie/list`;
     return this.http.get<IGenre[]>(genresUrl, this.options).pipe(
       map((resp: any) => {
         resp.genres.forEach((genre: IGenre) => {
           this.genresMapping[genre.id] = genre.name;
         });
+        return resp.genres as IGenre[];
       })
     );
   }
+  
 
   // Obtener géneros almacenados
   getGenresMapping(): { [id: number]: string } {

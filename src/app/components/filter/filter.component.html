@@ -1,1 +1,7 @@
-
+<div class="filter">
+  <label for="genero"><strong>Género: </strong></label>
+  <select [(ngModel)]="selectedGenreId">
+  <option value="" disabled selected>Select a option</option>
+  <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
+  </select>
+</div>

@@ -14,6 +14,7 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
 import { CardComponent } from './components/card/card.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DetailsComponent } from './views/details/details.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,13 +28,14 @@ import { DetailsComponent } from './views/details/details.component';
     HomeComponent,
     MovieListComponent,
     CardComponent,
-    DetailsComponent
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
