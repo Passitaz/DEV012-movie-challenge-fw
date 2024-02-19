@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MovieService } from 'src/app/lib/movie-service.service';
 import { IMovie } from 'src/app/components/interface/interface';
 
@@ -8,10 +8,12 @@ import { IMovie } from 'src/app/components/interface/interface';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
+
 export class HomeComponent implements OnInit {
   movieList: IMovie[] = [];
   currentPage: number = 1;
   itemsPerPage: number = 20;
+  genre: number = 0;
 
   constructor(private movieService: MovieService) { }
 
