@@ -12,8 +12,7 @@ import { IMovie } from 'src/app/components/interface/interface';
 export class HomeComponent implements OnInit {
   movieList: IMovie[] = [];
   currentPage: number = 1;
-  itemsPerPage: number = 20;
-  genre: number = 0;
+  genre: number | null = null;
 
   constructor(private movieService: MovieService) { }
 
@@ -23,22 +22,21 @@ export class HomeComponent implements OnInit {
   }
 
   getData(){
-    this.movieService.getAllMovies(this.currentPage).subscribe(movies => {
-      this.movieList = this.movieList.concat(movies);
-      //console.log(this.movieList);
+    this.movieService.getAllMovies(this.currentPage, this.genre).subscribe(movies => {
+      console.log(movies);
+      this.movieList = movies;
+      console.log(this.movieList);
   })
 }
 
-onFilterChanged(selectedGenre: number | null) {
-  // Lógica para aplicar el filtro por género y obtener las películas filtradas
-  // Puedes reiniciar la paginación y cargar las nuevas películas
-  this.currentPage = 1;
-  this.movieList = [];
+pageChanged(page: number) {
+  this.currentPage = page;
   this.getData();
 }
 
-pageChanged(newPage: number) {
-  this.currentPage = newPage;
+selectFilteredGenre(genre: number | null){
+  console.log('selectFilteredGenre');
+  this.genre = genre;
   this.getData();
-}
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { IMovie } from '../interface/interface';
 import { MovieService } from 'src/app/lib/movie-service.service';
 
@@ -9,12 +9,14 @@ import { MovieService } from 'src/app/lib/movie-service.service';
 })
 
 export class MovieListComponent implements OnInit {
-  currentPage: number = 1;
+  
   selectedGenreId: number | null = null;
 
 @Input() movieList!: IMovie[];
 //definir propiedad como input porque llegara el array desde el padre, entonces en home tendre el ngOnInit que llame a getData. Primero llevarme ngOnInit y getData ( hacer un console log para revisar que me lleve la informacion), despues se envia al componente hijo
 public genresMapping: { [id: number]: string } = {};
+
+//@Output() UpdateData: EventEmitter<number | null> = new EventEmitter<number | null>();
 
   constructor(private movieService: MovieService) { }
 
@@ -28,30 +30,18 @@ public genresMapping: { [id: number]: string } = {};
     });
   }
 
-  getMovies(page: number) {
-    this.movieService.getAllMovies(page).subscribe(resp => {
-      this.movieList = resp;
-    });
+  //getMovies(page: number) {
+   // this.movieService.getAllMovies(page).subscribe(resp => {
+   //   this.movieList = resp;
+  //  });
     //console.log(page);
     //console.log(this.movieList);
-  }
+  //}
     
-  changePage(page: number) {
-      this.getMovies(page);
-      this.currentPage = page;
-  }
+  
 
   getGenresByIds(genreIds: number[]): string[] {
     // Utiliza el mapeo de géneros para obtener los nombres
     return genreIds.map(id => this.genresMapping[id] || '');
-  }
-
-  selectFilteredGenre(selectedGenreId: number | null) {
-    //console.log('Método selectFilteredGenre ejecutado');
-    // Lógica para manejar el género seleccionado en el componente padre
-    console.log('Género seleccionado en el componente padre:', selectedGenreId);
-    // Aquí puedes realizar la lógica de filtrado basada en el género seleccionado
-    // Almacena el género seleccionado y la página actual
-    
   }
 }

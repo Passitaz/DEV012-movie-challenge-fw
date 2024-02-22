@@ -25,10 +25,12 @@ export class FilterComponent implements OnInit {
   });
 
   this.sortOptions = this.movieService.getSortOptions();
-  
   }
-
+  
   emitFilteredGenre() {
+    console.log(this.selectedGenreId);
+    if (this.selectedGenreId !== null) {
     this.filteredGenreEmitter.emit(this.selectedGenreId);
   }
+}
 }
