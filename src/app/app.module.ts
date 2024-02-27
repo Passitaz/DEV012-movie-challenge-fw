@@ -6,7 +6,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { BackButtonComponent } from './components/back-button/back-button.component'
-import { ClearButtonComponent } from './components/clearbutton/clearbutton.component';
 import { HomeComponent } from './views/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
@@ -22,7 +21,6 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     HeaderComponent,
     FilterComponent,
     BackButtonComponent,
-    ClearButtonComponent,
     HomeComponent,
     MovieListComponent,
     DetailsComponent,

@@ -24,21 +24,8 @@ public genresMapping: { [id: number]: string } = {};
     // Llama a la función para obtener el mapeo de géneros al inicializar el componente
     this.movieService.getGenres().subscribe(genres => {
       this.genresMapping = this.movieService.getGenresMapping();
-      this.movieList.forEach(movie => {
-        //console.log(`Genres for ${movie.title}:`, this.getGenresByIds(movie.genre_ids));
-      });
     });
-  }
-
-  //getMovies(page: number) {
-   // this.movieService.getAllMovies(page).subscribe(resp => {
-   //   this.movieList = resp;
-  //  });
-    //console.log(page);
-    //console.log(this.movieList);
-  //}
-    
-  
+  }  
 
   getGenresByIds(genreIds: number[]): string[] {
     // Utiliza el mapeo de géneros para obtener los nombres

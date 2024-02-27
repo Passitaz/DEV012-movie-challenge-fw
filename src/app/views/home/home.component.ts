@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   movieList: IMovie[] = [];
   currentPage: number = 1;
   genre: number | null = null;
+  sortBy: string | null = null;
 
   constructor(private movieService: MovieService) { }
 
@@ -22,21 +23,36 @@ export class HomeComponent implements OnInit {
   }
 
   getData(){
-    this.movieService.getAllMovies(this.currentPage, this.genre).subscribe(movies => {
-      console.log(movies);
+    this.movieService.getAllMovies(this.currentPage, this.genre, this.sortBy).subscribe(movies => {
+      //console.log(movies);
       this.movieList = movies;
-      console.log(this.movieList);
+      //console.log(this.movieList);
   })
 }
 
-pageChanged(page: number) {
-  this.currentPage = page;
-  this.getData();
-}
-
-selectFilteredGenre(genre: number | null){
-  console.log('selectFilteredGenre');
-  this.genre = genre;
-  this.getData();
+  pageChanged(page: number) {
+    this.currentPage = page;
+    //console.log(this.genre, page, this.sortBy)
+    this.getData();
   }
+
+  selectFilterGenre(genre: number | null){
+    //console.log(genre, this.currentPage, this.sortBy)
+    this.genre = genre;
+    this.getData();
+  }
+
+  selectFilterSortBy(sort: string | null){
+    this.sortBy = sort;
+    //console.log(sort, this.currentPage, this.genre)
+    this.getData();
+  }
+
+  clearButton(event: null) {
+    this.genre = null;
+    this.sortBy = null;
+    //console.log(this.currentPage, this.genre, this.sortBy)
+    this.getData();
+  }
+
 }

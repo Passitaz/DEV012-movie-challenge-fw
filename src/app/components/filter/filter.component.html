@@ -1,17 +1,19 @@
 <div class="filters">
-    <div class="filter">
-        <label for="genre"><strong>Genre: </strong></label>
-        <select name="genre" [(ngModel)]="selectedGenreId" (change)="emitFilteredGenre()">
-          <option [ngValue]="null" [disabled]="true">--Select a option--</option>
+  <div class="filter">
+    <label for="genre"><strong>Genre: </strong></label>
+      <select name="genre" [(ngModel)]="selectedGenreId" (change)="emitFilterGenre()">
+          <option [ngValue]="null" [disabled]="true">--Select an option--</option>
           <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
         </select>
-      </div>
+    </div>
 
-      <div class="sort-by">
+  <div class="sort-by">
         <label for="sort-by"><strong>Sort by: </strong></label>
-        <select name="sort-by" [(ngModel)]="selectedSortBy">
+        <select name="sort-by" [(ngModel)]="selectedSortBy" (change)="emitFilterSortBy()">
           <option [ngValue]="null" [disabled]="true">--Select an option--</option>
           <option *ngFor="let option of sortOptions" [ngValue]="option">{{ option }}</option>
         </select>
-      </div>
+  </div>
+
+  <input type="button" value="Clear filters" class="clear" (click)="emitFilterClear()">
 </div>

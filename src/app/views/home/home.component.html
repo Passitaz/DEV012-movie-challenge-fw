@@ -1,6 +1,5 @@
 <header><app-header></app-header></header>
-<app-filter (filteredGenreEmitter)="selectFilteredGenre($event)"></app-filter>
-<!--<app-clearbutton [clearFilters]="clearFilters()"></app-clearbutton>-->
+<app-filter (filterGenreEmitter)="selectFilterGenre($event)" (filterSortByEmitter)="selectFilterSortBy($event)" (clearFilters)="clearButton($event)"></app-filter>
 <app-movie-list [movieList]="movieList"></app-movie-list>
 <app-pagination (Pagination)="pageChanged($event)"></app-pagination>
 <footer><app-footer></app-footer></footer>

@@ -15,7 +15,9 @@ export class FilterComponent implements OnInit {
   sortOptions: string[] = [];
   
 
-  @Output() filteredGenreEmitter: EventEmitter<number | null> = new EventEmitter<number | null>();
+  @Output() filterGenreEmitter: EventEmitter<number | null> = new EventEmitter<number | null>();
+  @Output() filterSortByEmitter: EventEmitter<string | null> = new EventEmitter<string | null>();
+  @Output() clearFilters: EventEmitter<null> = new EventEmitter<null>();
 
   constructor(private movieService: MovieService) { }
   
@@ -27,10 +29,26 @@ export class FilterComponent implements OnInit {
   this.sortOptions = this.movieService.getSortOptions();
   }
   
-  emitFilteredGenre() {
-    console.log(this.selectedGenreId);
+  emitFilterGenre() {
+    //console.log(this.selectedGenreId);
     if (this.selectedGenreId !== null) {
-    this.filteredGenreEmitter.emit(this.selectedGenreId);
+    this.filterGenreEmitter.emit(this.selectedGenreId);
+    }
   }
-}
+
+  emitFilterSortBy() {
+    //console.log(this.selectedSortBy)
+    if (this.selectedSortBy !== null) {
+      this.filterSortByEmitter.emit(this.selectedSortBy)
+    }
+  }
+
+  emitFilterClear() {
+    // Emitir el evento para notificar al componente padre que se deben limpiar los filtros
+    this.selectedGenreId = null;
+    this.selectedSortBy = null;
+    this.clearFilters.emit();
+    //console.log(this.selectedGenreId, this.selectedSortBy);
+    
+  }
 }
