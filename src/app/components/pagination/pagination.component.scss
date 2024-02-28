@@ -1,8 +1,14 @@
 .pagination {
+  cursor: pointer;
   border-radius: 10px;
   justify-content: center;
   display: flex;
   margin-bottom: 20px;
+  
+}
+
+.button-previous, .button-next {
+  cursor: pointer;
 }
 
 .button-previous:active, .button-next:active {
@@ -10,6 +16,11 @@
 }
 
 .selected-page {
+  cursor: pointer;
   background-color: blue;
+}
+
+#page-1, #page-2, #page-3, #page-4, #page-5{
+  cursor: pointer;
 }
 

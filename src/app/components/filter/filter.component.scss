@@ -3,17 +3,16 @@
     display: flex;
     font-size: larger;
     margin-top: 50px;
-}
-
-.filter{
-    margin-left: 250px;
-}
-
-.sort-by{
-    margin-left: 165px;
-}
-
-.clear{
+    justify-content: space-between;
     margin-left: 200px;
+    margin-right: 150px;
 }
 
+.clear {
+    margin-right: 150px;
+    cursor: pointer;
+}
+
+.filter, .sort-by{
+    cursor: pointer;
+}

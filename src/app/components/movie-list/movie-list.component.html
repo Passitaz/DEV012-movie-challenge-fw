@@ -1,7 +1,11 @@
 <div class="container-movie" *ngIf="movieList">
   <div style="height: 55vh; width: 16vw;" *ngFor="let movie of movieList">
-    <img class="imag" *ngIf="movie.poster_path" src="https://image.tmdb.org/t/p/w200{{ movie?.poster_path }}" />
-    <img class="image" *ngIf="!movie.poster_path" src="../../../assets/Imagen/Imagen no encontrada.png"/>
+    <img class="imag" *ngIf="movie.poster_path" 
+         src="https://image.tmdb.org/t/p/w200{{ movie?.poster_path }}"
+         [routerLink]="['/detail', movie.id]" />
+    <img class="imag" *ngIf="!movie.poster_path" 
+         src="../../../assets/Imagen/Imagen no encontrada.png"
+         [routerLink]="['/detail', movie.id]"/>
     <p>{{ movie.title }}</p>
     <p>{{ movie.release_date }}</p>
     <p>{{ getGenresByIds(movie.genre_ids).join(', ')}}</p>
