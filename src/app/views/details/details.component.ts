@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IMovie } from 'src/app/components/interface/interface';
 import { MovieService } from 'src/app/lib/movie-service.service';
 
@@ -15,7 +15,8 @@ export class DetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private movieService: MovieService
+    private movieService: MovieService,
+    private router: Router
     ) { }
 
     getId(){
@@ -31,6 +32,10 @@ export class DetailsComponent implements OnInit {
           console.log(resp);
         });
       }
+    }
+
+    back(): void{
+      this.router.navigate(["/"]);
     }
 
 }

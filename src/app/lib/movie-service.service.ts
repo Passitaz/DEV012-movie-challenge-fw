@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders,  HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { IMovie, IGenre, IMovieDetail } from '../components/interface/interface';
+import { IMovie, IGenre } from '../components/interface/interface';
 
 @Injectable({
   providedIn: 'root'
@@ -74,9 +74,9 @@ export class MovieService {
     return this.genresMapping;
   }
 
-  getDetail(id: number): Observable<IMovieDetail>{
-    return this.http.get<IMovieDetail>(`${this.baseUrl}/movie/${id}?lenguaje=en-US`, {headers: this.headers}).pipe(
-      map((resp: IMovieDetail) => resp),
+  getDetail(id: number): Observable<IMovie>{
+    return this.http.get<IMovie>(`${this.baseUrl}/movie/${id}?lenguaje=en-US`, {headers: this.headers}).pipe(
+      map((resp: IMovie) => resp),
     );
   }
 }

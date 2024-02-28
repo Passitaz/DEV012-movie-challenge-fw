@@ -1,1 +1,22 @@
-<p>details works!</p>
+<div class="container-detail" >
+    <div >
+      <img class="imag" *ngIf="detailMovie?.poster_path" 
+           src="https://image.tmdb.org/t/p/w200{{ detailMovie?.poster_path }}">
+      <img class="imag" *ngIf="!detailMovie?.poster_path"/>
+    </div>
+    
+    <div class="description">
+        <h1>{{ detailMovie?.title }}</h1>
+        <div class="information">
+            <h2> {{detailMovie?.genre_ids}}
+            Votes: {{ detailMovie?.vote_average }}<br>
+            Total votes: {{ detailMovie?.vote_count }}<br>
+            Year: {{ detailMovie?.release_date }}</h2>
+            <div class="overview"><p>{{ detailMovie?.overview }}</p></div>
+        </div>
+
+        
+    </div>
+    <div><button class="backbutton" (click)="back()">X</button></div>
+
+  </div>

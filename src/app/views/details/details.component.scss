@@ -1,0 +1,46 @@
+.container-detail {
+    color: white;
+    display: flex;
+}
+
+.imag{
+    width: 550px;
+    height: 727px;
+    mask-image: linear-gradient(to left, transparent, black 200px)
+}
+
+.description{
+    color: white;
+    margin-top: 160px;
+    margin-left: 20px;
+}
+
+h1{
+    font-size: 50px;
+}
+
+h2 {
+    font-size: large;
+}
+
+.information {
+    background-color: rgb(34, 74, 161);
+    mask-image: linear-gradient( to left, transparent 10% );
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.overview {
+    font-size: 22px;
+    text-align: justify;
+}
+
+.backbutton{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-right: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
