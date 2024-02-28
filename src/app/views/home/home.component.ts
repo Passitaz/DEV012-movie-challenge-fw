@@ -12,6 +12,7 @@ import { IMovie } from 'src/app/components/interface/interface';
 export class HomeComponent implements OnInit {
   movieList: IMovie[] = [];
   currentPage: number = 1;
+  previousPage: number = 0;
   genre: number | null = null;
   sortBy: string | null = null;
 
@@ -23,14 +24,18 @@ export class HomeComponent implements OnInit {
   }
 
   getData(){
+    let currentPageButton = document.getElementById('page-' + this.currentPage);
+    currentPageButton?.classList.add('selected-page');
+    let previousPageButton = document.getElementById('page-' + this.previousPage);
+    previousPageButton?.classList.remove('selected-page');
     this.movieService.getAllMovies(this.currentPage, this.genre, this.sortBy).subscribe(movies => {
       //console.log(movies);
       this.movieList = movies;
-      //console.log(this.movieList);
   })
 }
 
   pageChanged(page: number) {
+    this.previousPage = this.currentPage;
     this.currentPage = page;
     //console.log(this.genre, page, this.sortBy)
     this.getData();

@@ -1,9 +1,9 @@
 <div class="pagination">
-  <button (click)="changePage(currentPage-1)">&lt;&lt;Previous</button>
-  <button class="button-clicked" (click)="changePage(1)">1</button>
-  <button class="button-clicked" (click)="changePage(2)">2</button>
-  <button class="button-clicked" (click)="changePage(3)">3</button>
-  <button class="button-clicked" (click)="changePage(4)">4</button>
-  <button class="button-clicked" (click)="changePage(5)">5</button>
-  <button (click)="changePage(currentPage+1)">Next>></button>
+  <button class="button-previous"(click)="changePage(currentPage-1)"[disabled]="currentPage == 1 ? true : false">&lt;&lt;Previous</button>
+  <button id="page-1" (click)="changePage(1)">1</button>
+  <button id="page-2" (click)="changePage(2)">2</button>
+  <button id="page-3" (click)="changePage(3)">3</button>
+  <button id="page-4" (click)="changePage(4)">4</button>
+  <button id="page-5" (click)="changePage(5)">5</button>
+  <button class="button-next" (click)="changePage(currentPage+1)" [disabled]="currentPage == 5 ? true : false">Next>></button>
 </div>
