@@ -4,10 +4,9 @@
          src="https://image.tmdb.org/t/p/w200{{ movie?.poster_path }}"
          [routerLink]="['/detail', movie.id]" />
     <img class="imag" *ngIf="!movie.poster_path" 
-         src="../../../assets/Imagen/Imagen no encontrada.png"
+         src="../../../assets/Image/Image not found.jpg"
          [routerLink]="['/detail', movie.id]"/>
-    <p>{{ movie.title }}</p>
-    <p>{{ movie?.release_date ? (movie?.release_date | date:'yyyy') : 'N/A' }}</p>
+    <p>{{ movie.title }} ({{ movie?.release_date | date:'yyyy' }})</p>
     <p>{{ getGenresByIds(movie.genre_ids).join(', ')}}</p>
   </div>
 </div>

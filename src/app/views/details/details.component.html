@@ -2,16 +2,16 @@
     <div >
       <img class="imag" *ngIf="detailMovie?.poster_path" 
            src="https://image.tmdb.org/t/p/w200{{ detailMovie?.poster_path }}">
-      <img class="imag" *ngIf="!detailMovie?.poster_path"/>
-    </div>
-    
+      <img class="imag" *ngIf="!detailMovie?.poster_path"
+            src="../../../assets/Image/Image not found.jpg"/>
+    </div>    
     <div class="description">
         <h1>{{ detailMovie?.title }}</h1>
         <div class="information">
             <h2> {{detailMovie?.genre_ids}}
             Votes: {{ stars(detailMovie?.vote_average) }}<br>
             Total votes: {{ detailMovie?.vote_count }}<br>
-            Year: {{ detailMovie?.release_date ? (detailMovie?.release_date | date:'yyyy') : 'N/A'  }}</h2>
+            Year: {{ detailMovie?.release_date | date:'yyyy' }}</h2>
             <div class="overview"><p>{{ detailMovie?.overview }}</p></div>
         </div>
     </div>
