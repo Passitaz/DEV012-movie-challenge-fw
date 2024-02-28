@@ -9,14 +9,11 @@
         <h1>{{ detailMovie?.title }}</h1>
         <div class="information">
             <h2> {{detailMovie?.genre_ids}}
-            Votes: {{ detailMovie?.vote_average }}<br>
+            Votes: {{ stars(detailMovie?.vote_average) }}<br>
             Total votes: {{ detailMovie?.vote_count }}<br>
-            Year: {{ detailMovie?.release_date }}</h2>
+            Year: {{ detailMovie?.release_date ? (detailMovie?.release_date | date:'yyyy') : 'N/A'  }}</h2>
             <div class="overview"><p>{{ detailMovie?.overview }}</p></div>
         </div>
-
-        
     </div>
     <div><button class="backbutton" (click)="back()">X</button></div>
-
   </div>

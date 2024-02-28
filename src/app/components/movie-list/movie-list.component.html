@@ -7,7 +7,7 @@
          src="../../../assets/Imagen/Imagen no encontrada.png"
          [routerLink]="['/detail', movie.id]"/>
     <p>{{ movie.title }}</p>
-    <p>{{ movie.release_date }}</p>
+    <p>{{ movie?.release_date ? (movie?.release_date | date:'yyyy') : 'N/A' }}</p>
     <p>{{ getGenresByIds(movie.genre_ids).join(', ')}}</p>
   </div>
 </div>

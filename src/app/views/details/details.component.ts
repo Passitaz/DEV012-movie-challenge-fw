@@ -38,4 +38,13 @@ export class DetailsComponent implements OnInit {
       this.router.navigate(["/"]);
     }
 
+    stars(voteAverage: number | undefined): string {
+      if (voteAverage !== undefined) {
+        // Lógica para convertir el número en estrellas
+        return '★'.repeat(Math.round(voteAverage / 2)) + '☆'.repeat(5 - Math.round(voteAverage / 2));
+      } else {
+        return 'N/A';
+      }
+    }
+
 }
